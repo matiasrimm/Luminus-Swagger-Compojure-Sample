@@ -1,8 +1,6 @@
-# abc
+# Luminus Swagger Compojure Sample
 
-generated using Luminus version "2.9.10.84"
-
-FIXME
+Sample
 
 ## Prerequisites
 
@@ -15,6 +13,10 @@ You will need [Leiningen][1] 2.0 or above installed.
 To start a web server for the application, run:
 
     lein run
+    
+Run migrations
+
+    lein run migrate
 
 ## License
 
