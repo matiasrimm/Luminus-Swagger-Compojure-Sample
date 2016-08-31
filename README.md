@@ -18,5 +18,4 @@ Run migrations
 
     lein run migrate
 
-## License
 
