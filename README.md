@@ -1,6 +1,6 @@
 # Luminus Swagger Compojure Sample
 
-Sample
+Sample Application
 
 ## Prerequisites
 
