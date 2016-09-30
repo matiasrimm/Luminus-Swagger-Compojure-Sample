@@ -5,20 +5,12 @@
             [abc.db.core :as db]))
 
 ;; Schemas
-;; Not Able to define Timestamp when post/put so multiple schemas
 
 (s/defschema Message
   {:id s/Int
    :name s/Str
    :message s/Str
    :timestamp java.sql.Timestamp
-   })
-
-(s/defschema MessageNoTimestamp
-  {:id s/Int
-   :name s/Str
-   :message s/Str
-   :timestamp s/Str
    })
 
 ;; Service
@@ -34,7 +26,7 @@
 
     (POST "/messages" []
           :return Long
-          :body-params [message :- MessageNoTimestamp]
+          :body-params [message :- Message]
           :summary "creates a new message"
           (ok (db/create-message message)))
 
@@ -51,14 +43,14 @@
 
     (PUT "/messages" []
          :return Long
-         :body-params [message :- MessageNoTimestamp]
+         :body-params [message :- Message]
          :summary "updates all messages"
          (ok (db/update-messages message)))
 
     (PUT "/messages/:message_id" []
          :return Long
          :path-params [message_id :- Long]
-         :body-params [message :- MessageNoTimestamp]
+         :body-params [message :- Message]
          :summary "updates message from a given id"
          ;; conj path_params and body_params
          (ok (db/update-message (conj message {:message_id message_id})  )))
